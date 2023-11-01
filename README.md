@@ -1,1 +1,3 @@
 ## Ohjelmistotuotanto
+
+Kurssin Ohjelmistotuotanto tehtävät.
