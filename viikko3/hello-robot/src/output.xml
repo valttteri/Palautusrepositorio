@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.0 on win32)" generated="20231116 10:53:08.463" rpa="false" schemaversion="4">
+<suite id="s1" name="Increase Counter" source="c:\Users\Valts\Documents\Palautusrepositorio\viikko3\hello-robot\src\tests\increase_counter.robot">
+<test id="s1-t1" name="Increment Counter By Amount" line="15">
+<kw name="Counter Value Should Be" library="CounterLibrary">
+<arg>0</arg>
+<status status="PASS" starttime="20231116 10:53:08.497" endtime="20231116 10:53:08.497"/>
+</kw>
+<kw name="Increment Counter By" library="CounterLibrary">
+<arg>5</arg>
+<status status="PASS" starttime="20231116 10:53:08.497" endtime="20231116 10:53:08.497"/>
+</kw>
+<kw name="Counter Value Should Be" library="CounterLibrary">
+<arg>5</arg>
+<status status="PASS" starttime="20231116 10:53:08.497" endtime="20231116 10:53:08.497"/>
+</kw>
+<status status="PASS" starttime="20231116 10:53:08.497" endtime="20231116 10:53:08.497"/>
+</test>
+<status status="PASS" starttime="20231116 10:53:08.479" endtime="20231116 10:53:08.497"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Increase Counter">Increase Counter</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
