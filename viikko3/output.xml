@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.0 on win32)" generated="20231116 10:44:41.701" rpa="false" schemaversion="4">
+<suite id="s1" name="Reset Counter" source="c:\Users\Valts\Documents\Palautusrepositorio\viikko3\src\tests\reset_counter.robot">
+<test id="s1-t1" name="Reset Counter After Several Increments" line="12">
+<kw name="Counter Value Should Be" library="CounterLibrary">
+<arg>0</arg>
+<status status="PASS" starttime="20231116 10:44:41.735" endtime="20231116 10:44:41.735"/>
+</kw>
+<kw name="Increment Counter By" library="CounterLibrary">
+<arg>5</arg>
+<status status="PASS" starttime="20231116 10:44:41.736" endtime="20231116 10:44:41.736"/>
+</kw>
+<kw name="Counter Value Should Be" library="CounterLibrary">
+<arg>5</arg>
+<status status="PASS" starttime="20231116 10:44:41.737" endtime="20231116 10:44:41.737"/>
+</kw>
+<kw name="Reset Counter" library="CounterLibrary">
+<status status="PASS" starttime="20231116 10:44:41.737" endtime="20231116 10:44:41.738"/>
+</kw>
+<kw name="Counter Value Should Be" library="CounterLibrary">
+<arg>0</arg>
+<status status="PASS" starttime="20231116 10:44:41.738" endtime="20231116 10:44:41.738"/>
+</kw>
+<status status="PASS" starttime="20231116 10:44:41.734" endtime="20231116 10:44:41.738"/>
+</test>
+<status status="PASS" starttime="20231116 10:44:41.712" endtime="20231116 10:44:41.739"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Reset Counter">Reset Counter</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
