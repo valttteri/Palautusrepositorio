@@ -34,9 +34,39 @@ Register With Nonmatching Password And Password Confirmation
     Submit Credentials
     Register Should Fail With Message  Password doesn't match to password confirmation
 
+Login After Successful Registration
+    Set Username  kalle
+    Set Password  kalle1234
+    Set Password Confirmation  kalle1234
+    Submit Credentials
+    Go To Login Page
+    Set Username  kalle
+    Set Password  kalle1234
+    Attempt Login
+    Login Is Successful
+
+Login After Failed Registration
+    Set Username  ka
+    Set Password  kalle1234
+    Set Password Confirmation  kalle1234
+    Submit Credentials
+    Go To Login Page
+    Set Username  ka
+    Set Password  kalle1234
+    Attempt Login
+    Login Fails With Message  Invalid username or password
+
 *** Keywords ***
 Register Should Succeed
     Welcome Page Should Be Open
+
+Login Is Successful
+    Main Page Should Be Open
+
+Login Fails With Message
+    [Arguments]  ${message}
+    Login Page Should Be Open
+    Page Should Contain  ${message}
 
 Register Should Fail With Message
     [Arguments]  ${message}
@@ -45,6 +75,9 @@ Register Should Fail With Message
 
 Submit Credentials
     Click Button  Register
+
+Attempt Login
+    Click Button  Login
 
 Set Username
     [Arguments]  ${username}
