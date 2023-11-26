@@ -6,7 +6,10 @@ class Kassapaate:
         self.myytyja_lounaita = 0
 
     def lataa(self, kortti, summa):
-        kortti.lataa(summa)
+        if summa >= 0:
+            kortti.lataa(summa)
+        else:
+            print("Negatiivinen arvo ei kelpaa")
 
     def osta_lounas(self, kortti):
         if kortti.saldo >= HINTA:
