@@ -6,7 +6,7 @@ class IntJoukko:
     # tämä metodi on ainoa tapa luoda listoja
     def _luo_lista(self, koko):
         return [0] * koko
-    
+
     def __init__(self, kapasiteetti=KAPASITEETTI, kasvatuskoko=OLETUSKASVATUS):
         if not isinstance(kapasiteetti, int) or kapasiteetti < 0:
             raise Exception("Väärä kapasiteetti")  # heitin vaan jotain :D
@@ -19,10 +19,10 @@ class IntJoukko:
         self.lukujono = self._luo_lista(self.kapasiteetti)
         self.alkioiden_lukumaara = 0
 
-    def kuuluu(self, luku:int):
+    def kuuluu(self, luku: int):
         return luku in self.lukujono
 
-    def lisaa(self, luku:int):
+    def lisaa(self, luku: int):
         if not self.kuuluu(luku):
             self.lukujono[self.alkioiden_lukumaara] = luku
             self.alkioiden_lukumaara += 1
@@ -32,16 +32,17 @@ class IntJoukko:
             return True
 
         return False
-    
+
     def kasvata_listan_kapasiteettia(self):
         if self.alkioiden_lukumaara % len(self.lukujono) == 0:
             taulukko_old = self.lukujono
             self.kopioi_lista(self.lukujono, taulukko_old)
-            self.lukujono = self._luo_lista(self.alkioiden_lukumaara + self.kasvatuskoko)
+            self.lukujono = self._luo_lista(
+                self.alkioiden_lukumaara + self.kasvatuskoko
+            )
             self.kopioi_lista(taulukko_old, self.lukujono)
 
-
-    def poista(self, poistettava_luku:int):
+    def poista(self, poistettava_luku: int):
         if self.kuuluu(poistettava_luku):
             luvun_indeksi = self.lukujono.index(poistettava_luku)
             self.lukujono[luvun_indeksi] = 0
@@ -55,7 +56,7 @@ class IntJoukko:
         return False
 
     def kopioi_lista(self, lukujono_1, lukujono_2):
-        for i in range(0, len(lukujono_1)):
+        for i, _ in enumerate(lukujono_1):
             lukujono_2[i] = lukujono_1[i]
 
     def mahtavuus(self):
@@ -64,7 +65,7 @@ class IntJoukko:
     def to_int_list(self):
         taulu = self._luo_lista(self.alkioiden_lukumaara)
 
-        for i in range(0, len(taulu)):
+        for i, _ in enumerate(taulu):
             taulu[i] = self.lukujono[i]
 
         return taulu
@@ -75,11 +76,11 @@ class IntJoukko:
         a_taulu = lukujono_1.to_int_list()
         b_taulu = lukujono_2.to_int_list()
 
-        for i in range(0, len(a_taulu)):
-            joukko.lisaa(a_taulu[i])
+        for luku in a_taulu:
+            joukko.lisaa(luku)
 
-        for i in range(0, len(b_taulu)):
-            joukko.lisaa(b_taulu[i])
+        for luku in b_taulu:
+            joukko.lisaa(luku)
 
         return joukko
 
@@ -91,15 +92,15 @@ class IntJoukko:
 
         for luku in a_taulu:
             if luku in b_taulu:
-                    joukko.lisaa(luku)
+                joukko.lisaa(luku)
 
         return joukko
 
     @staticmethod
-    def erotus(a, b):
+    def erotus(lukujono_a, lukujono_b):
         joukko = IntJoukko()
-        a_taulu = a.to_int_list()
-        b_taulu = b.to_int_list()
+        a_taulu = lukujono_a.to_int_list()
+        b_taulu = lukujono_b.to_int_list()
 
         for luku in a_taulu:
             joukko.lisaa(luku)
@@ -112,8 +113,8 @@ class IntJoukko:
     def __str__(self):
         merkkijono = "{"
         if self.alkioiden_lukumaara == 0:
-            return merkkijono+"}"
-        
+            return merkkijono + "}"
+
         for i in range(self.alkioiden_lukumaara):
             merkkijono += f"{str(self.lukujono[i])}, "
-        return merkkijono[:-2]+"}"
+        return merkkijono[:-2] + "}"
