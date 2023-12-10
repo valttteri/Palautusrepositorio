@@ -9,7 +9,6 @@ class And:
 
         return True
 
-
 class PlaysIn:
     def __init__(self, team):
         self._team = team
