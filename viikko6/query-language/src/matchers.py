@@ -27,3 +27,24 @@ class HasAtLeast:
         player_value = getattr(player, self._attr)
 
         return player_value >= self._value
+    
+class All:
+    def test(self, player):
+        return bool(player)
+
+class Not:
+    def __init__(self, matcher):
+        self.matcher = matcher
+
+    def test(self, player):
+        return not self.matcher.test(player)
+
+class HasFewerThan:
+    def __init__(self, value, attr):
+        self.value = value
+        self.attr = attr
+
+    def test(self, player):
+        player_value = getattr(player, self.attr)
+
+        return player_value < self.value
